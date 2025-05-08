@@ -1,0 +1,30 @@
+module.exports=[
+    {
+        id:1,
+        name:'John',
+        age:30,
+        email:'john50@gmail.com',
+        status:'active'
+    },
+    {
+        id:2,
+        name:'Jane',
+        age:25,
+        email:'janek250@gmail.com',
+        status:'active'
+    },
+    {
+        id:3,
+        name:'Bob',
+        age:35,
+        email:'bob450@gmail.com',
+        status:'inactive'
+    },
+    {
+        id:4,
+        name:'Alice',
+        age:40,
+        email:'alice50@gmail.com',
+        status:'active'
+    }
+]
