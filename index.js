@@ -35,6 +35,31 @@ app.post("/Employees/:name",(req,res)=>{
         res.status(404).send("Employee not found")
     }
 })
+//Adding newemployees
+app.post("/newemployees",(req,res)=>{
+    // console.log("req.body",req.body);
+// {**************************************************}
+    // const name=req.body.name
+    // const email=req.body.email
+    // console.log(name,email);
+// {**************************************************}
+    // const {name,email}=req.body
+    // console.log(name,email);
+ // {**************************************************}
+    // const {name,email}={...req.body}
+    // console.log(name,email);
+// {**************************************************}
+    
+const {name,email,age}=req.body
+const employee={
+    id:uuid.v4(),
+    name,
+    email,
+    age
+}
+Employees.push(employee)
+res.send(employee)
+})
 
 
     
