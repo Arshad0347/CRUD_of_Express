@@ -61,7 +61,18 @@ Employees.push(employee)
 res.send(employee)
 })
 
-
+//Another secondEmployee
+app.post("/secondEmployee",(req,res)=>{
+    const {name,email,age}=req.body
+    const employee={
+        id:uuid.v4(),
+        name:name,
+        email:email,
+        age:age
+    }
+    Employees.push(employee)
+    res.send(employee)
+})
     
 
 
