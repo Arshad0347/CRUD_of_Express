@@ -73,7 +73,40 @@ app.post("/secondEmployee",(req,res)=>{
     Employees.push(employee)
     res.send(employee)
 })
-    
+//Delete Employees
+app.delete("/delete/:uid",(req,res)=>{
+    const id=parseInt(req.params.uid)
+    // console.log(id);
+    const found =employees.some(employee=>employee.id===id)//some method: true or false
+    // console.log(found);
+  if(found){
+    res.send(employees.filter(employee=>employee.id!==id))
+  }
+  else{
+    res.status(404).send("Employee not found")
+  }
+  
+})
+
+app.put("/update/:uid",(req,res)=>{
+    const id=parseInt(req.params.uid)
+    const found =employees.some(employee=>employee.id===id)
+    if(found){//found method: true or false
+        const updateEmployee=req.body
+        employees.forEach(employee=>{
+            if(employee.id===id){
+                employee.name=updateEmployee.name?updateEmployee.name:employee.name
+                employee.email=updateEmployee.email?updateEmployee.email:employee.email
+                employee.age=updateEmployee.age?updateEmployee.age:employee.age
+            }
+        })
+        res.send(employees.filter(employee=>employee.id===id))
+        
+    }
+    else{
+        res.status(404).send("Employee not found")
+    }
+})
 
 
 app.listen(PORT,()=>console.log(`Server running on port ${PORT}`))
